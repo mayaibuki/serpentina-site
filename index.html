@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Serpentina</title>
+<meta name="description" content="An augmented reality motorcycle game to ride the roads worth riding">
+<meta name="theme-color" content="#0B0B0C">
+<meta property="og:title" content="Serpentina">
+<meta property="og:description" content="An augmented reality motorcycle game to ride the roads worth riding">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://serpentina.app/">
+<meta property="og:image" content="https://serpentina.app/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0B0B0C;
+    --red: #D0121B;
+    --red-hi: #F01C27;
+    --silver: #9DA1A6;
+    --white: #F3F3F2;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: var(--ink);
+    color: var(--white);
+    font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+    position: relative;
+  }
+  /* carbon weave */
+  body::before {
+    content: "";
+    position: fixed; inset: 0;
+    background:
+      repeating-linear-gradient(45deg,  rgba(255,255,255,.045) 0 1px, transparent 1px 3px),
+      repeating-linear-gradient(135deg, rgba(255,255,255,.045) 0 1px, transparent 1px 3px);
+    pointer-events: none;
+  }
+  /* red glow, bottom right, like light on the tank */
+  body::after {
+    content: "";
+    position: fixed; inset: 0;
+    background: radial-gradient(60vmax 60vmax at 88% 92%, rgba(208,18,27,.16), rgba(208,18,27,0) 60%);
+    pointer-events: none;
+  }
+  main {
+    position: relative;
+    z-index: 1;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 32px 24px;
+    animation: rise .6s ease-out both;
+  }
+  .mark { width: 220px; height: auto; display: block; margin-bottom: 28px; }
+  h1 {
+    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-style: italic;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: clamp(56px, 11vw, 132px);
+    line-height: .9;
+    margin: 0 0 20px;
+    color: var(--white);
+  }
+  h1 span { color: var(--red); }
+  p {
+    margin: 0 0 32px;
+    color: var(--silver);
+    font-size: 15px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  a.cta {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border: 1px solid var(--red);
+    transition: background .15s ease, border-color .15s ease;
+  }
+  a.cta:hover, a.cta:focus-visible { background: var(--red); border-color: var(--red-hi); outline: none; }
+  footer {
+    position: fixed; left: 0; right: 0; bottom: 18px;
+    text-align: center;
+    color: var(--silver);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    z-index: 1;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { main { animation: none; } a.cta { transition: none; } }
+  @media (max-width: 480px) {
+    .mark { width: 150px; margin-bottom: 20px; }
+    p { font-size: 13px; }
+    footer { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" viewBox="0 0 260 120" role="img" aria-label="Serpentina mark: a winding road that becomes a snake" xmlns="http://www.w3.org/2000/svg">
+    <!-- road -->
+    <path d="M18 96 C70 96 70 24 122 24 S174 96 226 96" fill="none" stroke="#3A3D41" stroke-width="22" stroke-linecap="round"/>
+    <path d="M18 96 C70 96 70 24 122 24 S174 96 226 96" fill="none" stroke="#9DA1A6" stroke-width="18" stroke-linecap="round" opacity=".9"/>
+    <!-- centreline that leaves the road and becomes the snake -->
+    <path d="M18 96 C70 96 70 24 122 24 S174 96 226 96 C240 96 246 88 244 72" fill="none" stroke="#D0121B" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="9 7"/>
+    <path d="M226 96 C240 96 246 88 244 72" fill="none" stroke="#D0121B" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- head -->
+    <path d="M244 72 C236 62 232 52 240 42 C246 36 254 40 256 48 C258 56 252 64 244 72 Z" fill="#D0121B"/>
+    <!-- open jaw -->
+    <path d="M240 42 L226 30 M240 42 L228 44" stroke="#D0121B" stroke-width="3" stroke-linecap="round" fill="none"/>
+    <!-- tongue -->
+    <path d="M226 30 L219 25 M226 30 L218 32" stroke="#D0121B" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- eye -->
+    <circle cx="248" cy="48" r="2.2" fill="#0B0B0C"/>
+  </svg>
+  <h1>Serpen<span>tina</span></h1>
+  <p>Roads worth riding. Bay Area first.</p>
+  <a class="cta" href="mailto:jmaya.design@gmail.com?subject=Serpentina%20early%20access">Early access</a>
+</main>
+<footer>Serpentina &middot; San Francisco Bay Area</footer>
+</body>
+</html>
