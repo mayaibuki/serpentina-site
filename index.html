@@ -85,18 +85,15 @@
     line-height: 1.5;
     letter-spacing: .01em;
   }
-  a.cta {
-    color: var(--white);
-    text-decoration: none;
+  .tag {
+    color: var(--silver);
     font-weight: 500;
-    font-size: 14px;
-    letter-spacing: .18em;
+    font-size: 12px;
+    letter-spacing: .22em;
     text-transform: uppercase;
-    padding: 12px 22px;
-    border: 1px solid var(--red);
-    transition: background .15s ease, border-color .15s ease;
+    padding: 9px 18px;
+    border: 1px solid rgba(208, 18, 27, .55);
   }
-  a.cta:hover, a.cta:focus-visible { background: var(--red); border-color: var(--red-hi); outline: none; }
   footer {
     position: fixed; left: 0; right: 0; bottom: 18px;
     display: flex;
@@ -119,7 +116,7 @@
   .ig svg { width: 22px; height: 22px; display: block; }
   .ig:hover, .ig:focus-visible { color: var(--red); outline: none; }
   @keyframes rise { from { opacity: 0; transform: translateY(8px);} to { opacity: 1; transform: none; } }
-  @media (prefers-reduced-motion: reduce) { main { animation: none; } a.cta, .ig { transition: none; } }
+  @media (prefers-reduced-motion: reduce) { main { animation: none; } .ig { transition: none; } }
   @media (max-width: 480px) {
     p { font-size: 16px; max-width: 22ch; }
     footer { font-size: 10px; }
@@ -130,7 +127,7 @@
 <main>
   <h1>Serpen<span>tina</span></h1>
   <p>An augmented reality game for enjoying the roads worth taking.</p>
-  <a class="cta" href="mailto:jmaya.design@gmail.com?subject=Serpentina%20early%20access">Early access</a>
+  <span class="tag">Coming soon</span>
 </main>
 <footer>
   <a class="ig" href="https://www.instagram.com/serpentina.app" target="_blank" rel="noopener" aria-label="Serpentina on Instagram">
@@ -140,7 +137,7 @@
       <circle cx="17.45" cy="6.55" r="1.15" fill="currentColor" stroke="none"/>
     </svg>
   </a>
-  <span>Serpentina &middot; San Francisco Bay Area</span>
+  <span>Serpentina &copy; 2026 &middot; San Francisco, CA</span>
 </footer>
 </body>
 </html>
