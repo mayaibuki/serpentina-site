@@ -18,7 +18,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@1,700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #0B0B0C;
@@ -66,12 +66,15 @@
     animation: rise .6s ease-out both;
   }
   h1 {
-    font-family: "Barlow Condensed", "Arial Narrow", sans-serif;
+    font-family: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
     font-style: italic;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: .08em;
-    font-size: clamp(56px, 11vw, 132px);
+    /* Barlow Semi Condensed is ~13% wider than Condensed at the same size, so the
+       floor comes down and the vw factor goes up: the wordmark still fills the
+       width on a phone, and stops overflowing at 320 and 360px. */
+    font-size: clamp(46px, 14vw, 132px);
     line-height: .9;
     margin: 0 0 20px;
     color: var(--white);
